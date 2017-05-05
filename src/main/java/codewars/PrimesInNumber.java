@@ -12,6 +12,22 @@ public class PrimesInNumber {
 
     private static List<Integer> PRIMES = new ArrayList<>();
 
+    public static String smarterFactors(int n) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 2; i <= n; i++) {
+            int nbTimes;
+            for (nbTimes = 0; n % i == 0; nbTimes++) {
+                n = n / i;
+            }
+            if (nbTimes > 0) {
+                result.append("(").append(i)
+                        .append((nbTimes > 1) ? "**" + nbTimes : "")
+                        .append(")");
+            }
+        }
+        return result.toString();
+    }
+
     public static String factors(int n) {
         HashMap<Integer, Integer> primeFactors = new HashMap<>();
         int prime = 2;
