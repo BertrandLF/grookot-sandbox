@@ -40,7 +40,7 @@ public class PrimesInNumber {
             prime = nextPrime(prime + 1);
         }
         StringBuilder result = new StringBuilder();
-        List keys = new ArrayList(primeFactors.keySet());
+        List<Integer> keys = new ArrayList<>(primeFactors.keySet());
         Collections.sort(keys);
         keys.forEach(key -> {
             int nbTimes = primeFactors.get(key);
